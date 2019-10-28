@@ -123,7 +123,7 @@ class HomeItemAdapter(context: Context?,
         }
 
         fun bindItemData(homeItem: HomeItem, position: Int) {
-            nameCircleTv?.setText(homeItem.author.trim().substring(0, 1))
+            nameCircleTv?.setText(if(homeItem.author.trim().isNotEmpty()) homeItem.author.trim().substring(0, 1) else "")
             labelView?.visibility = if (homeItem.fresh) View.VISIBLE else View.INVISIBLE
             authorTv?.text = homeItem.author
             timeTv?.text = homeItem.niceDate
